@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div id="main-region">
+    </div>
+    
+    <script type="text/javascript">
+        var isEven = function(n) {
+            return n % 2 == 0; 
+        };
+
+        var isOdd = function(n) {
+            return n % 2 == 1; 
+        };
+
+        var nums = [2, 4, 6];
+
+        // .every requires all items to return true
+        console.log(nums.every(isEven)); // true
+        console.log(nums.every(isOdd)); // false
+
+        nums.push(3); // add 3 to the array
+
+        // .some only requires one item to return true
+        console.log(nums.some(isEven)); // true
+        console.log(nums.some(isOdd)); // true
+
+    </script>
+    <script type="text/javascript">
+        var sent = "the quick brown fox jumps over the lazy dog";
+        var arr = sent.split(/\s/);
+        console.log(arr);
+
+        // Two different ways of reversing using reduce() and reduceRight()
+        console.log(arr.reverse().reduce(function(a, v) {
+            return a + ' ' + v; 
+        }));
+        
+        console.log(arr.reduceRight(function(accumulator, value) {
+            return accumulator + ' ' + value;
+        }));
+    </script>
+    <script src="http://localhost:35729/livereload.js"></script>
+</body>
+</html>
