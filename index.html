@@ -9,6 +9,27 @@
     </div>
     
     <script type="text/javascript">
+        var phrases = [
+            "for your information",
+            "also known as",
+            "too much information",
+            "laugh out loud",
+            "on my way"
+        ];
+
+        var firstLetter = function(word) {
+            return word[0]; 
+        };
+
+        var acronyms = phrases.map(function(phrase) {
+            var words = phrase.split(/\s/);
+
+            return words.map(firstLetter).join('').toUpperCase();
+        });
+
+        console.log(acronyms);
+    </script>
+    <script type="text/javascript">
         var isEven = function(n) {
             return n % 2 == 0; 
         };
@@ -28,7 +49,6 @@
         // .some only requires one item to return true
         console.log(nums.some(isEven)); // true
         console.log(nums.some(isOdd)); // true
-
     </script>
     <script type="text/javascript">
         var sent = "the quick brown fox jumps over the lazy dog";
