@@ -5,8 +5,24 @@
     <title></title>
 </head>
 <body>
-    <div id="main-region">
-    </div>
+    <script type="text/javascript">
+        var names = ['Tony', 'Tim', 'Manu'];
+
+        // lexigraphical reordering works well with names because it assumes strings
+        console.log(names.sort());
+
+        var numbers = [1, 200, 17, 3, 72, 111, 101, 2011, 14];
+
+        // lexigraphical reorder works less well for numbers because they are converted to strings
+        console.log(numbers.sort());
+
+        // we can overwrite the sort function to sort numerically
+        console.log(numbers.sort(function(num1, num2) {
+            console.log(num1 + ' - ' + num2 + ' = ' + (num1-num2));
+            return num1 - num2; 
+        }));
+        
+    </script>
     
     <script type="text/javascript">
         var phrases = [
@@ -29,6 +45,7 @@
 
         console.log(acronyms);
     </script>
+
     <script type="text/javascript">
         var isEven = function(n) {
             return n % 2 == 0; 
@@ -50,6 +67,7 @@
         console.log(nums.some(isEven)); // true
         console.log(nums.some(isOdd)); // true
     </script>
+
     <script type="text/javascript">
         var sent = "the quick brown fox jumps over the lazy dog";
         var arr = sent.split(/\s/);
