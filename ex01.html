@@ -78,7 +78,13 @@
                 },
 
                 weeklyAverages: function() {
+                    var averages = [];
 
+                    for(var i = 0, len = this.weeks().length; i < len; i++) {
+                        averages.push(this.weekAverage(i + 1));    
+                    }
+
+                    return averages;
                 },
 
                 weekAverage: function(weekNumber) {
@@ -94,7 +100,9 @@
 
         var march = new Month();
         march.set(1, 1, 50);
+        march.set(2, 2, 70);
         console.log(march.weekAverage(1));
+        console.log(march.weeklyAverages());
     </script>
 
     <script src="http://localhost:35729/livereload.js"></script>
