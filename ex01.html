@@ -70,11 +70,22 @@
                 set: function(weekNum, dayNum, value) {
                     weeks[weekNum - 1][dayNum - 1] = value;
 
+                    this.days = rows * cols;
+
+                    console.log(march.weekAverage(weekNum));
+                    console.log(march.weeklyAverages());
+                    console.log(march.monthlyAverage());
+                    console.log('--------------------');
+
                     return this;
                 },
 
                 monthlyAverage: function() {
-                    
+                    var sum = this.weeklyAverages().reduce(function(acc, val) {
+                        return acc + val;
+                    });
+
+                    return sum / 4;
                 },
 
                 weeklyAverages: function() {
@@ -101,8 +112,6 @@
         var march = new Month();
         march.set(1, 1, 50);
         march.set(2, 2, 70);
-        console.log(march.weekAverage(1));
-        console.log(march.weeklyAverages());
     </script>
 
     <script src="http://localhost:35729/livereload.js"></script>
