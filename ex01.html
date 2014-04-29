@@ -64,18 +64,37 @@
 
             return { 
                 weeks: function() {
-                    return weeks;
+                    return weeks.slice(0);
                 },
 
                 set: function(weekNum, dayNum, value) {
                     weeks[weekNum - 1][dayNum - 1] = value;
 
                     return this;
+                },
+
+                monthlyAverage: function() {
+                    
+                },
+
+                weeklyAverages: function() {
+
+                },
+
+                weekAverage: function(weekNumber) {
+                    var targetWeek = this.weeks()[weekNumber - 1];
+                    var sum = targetWeek.reduce(function(acc, val) {
+                        return acc + val;
+                    });
+                    
+                    return sum / targetWeek.length;
                 }
             };
         };
 
         var march = new Month();
+        march.set(1, 1, 50);
+        console.log(march.weekAverage(1));
     </script>
 
     <script src="http://localhost:35729/livereload.js"></script>
