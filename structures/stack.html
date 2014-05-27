@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        // Use cases:
+        // Expression evaluation / function calls
+        // Fast due to only being able to add/remove from the top of the stack
+        var Stack = function() {
+            return {
+                dataStore: [],
+                top: 0,
+
+                push: function(el) {
+                    this.dataStore[this.top++] = el;
+                    return this;
+                },
+
+                pop: function() {
+                    return this.dataStore[--this.top];
+                },
+
+                peek: function() {
+                    return this.dataStore[this.top - 1]; 
+                },
+
+                length: function() {
+                    return this.top;
+                },
+
+                clear: function() {
+                    this.top = 0;
+                }
+            }
+        };
+
+        var s = new Stack();
+
+        s.push('David').push('Allen').push('Coe');
+        console.log(s.dataStore);
+        console.log(s.pop());
+        console.log(s.dataStore);
+
+        console.log('length: ' + s.length());
+        console.log(s.peek());
+
+        s.clear();
+        console.log(s.dataStore);
+        console.log(
+    </script>
+    <script src="http://localhost:35729/livereload.js"></script>
+</head>
+<body>
+    
+</body>
+</html>
